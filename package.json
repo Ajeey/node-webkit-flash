@@ -1,0 +1,73 @@
+{
+	"name": "AJH264",
+	"main": "main.html",
+	"window": {
+		"min_width": 1000,
+		"min_height": 1000,
+		"icon": "./images/blue.png",
+		"toolbar": true,
+		"frame": true
+	},
+	"header": {
+		"back": true,
+		"forward": true,
+		"refresh": false,
+		"dev": false,
+		"address": false
+	},
+	"plugin": true,
+	"webkit": {
+		"plugin": true,
+		"page-cache": true
+	},
+	"chromium-args": "--ignore-certificate-errors --disable-web-security --ppapi-flash-path=plugins/PepperFlashPlayer.plugin --ppapi-flash-version=26.0.0.151",
+	"dependencies": {
+		"q": "1.5.0"
+	},
+	"devDependencies": {
+		"appdmg": "^0.4.5",
+		"nwjs-builder-phoenix": "1.14.3"
+	},
+	"js-flags": "--harmony",
+	"single-instance": true,
+	"enablePostMessage": false,
+	"version": "99.99.3",
+	"build": {
+		"nwVersion": "0.24.2",
+		"ffmpegIntegration": false,
+		"nwFlavor": "sdk",
+		"win": {
+			"productName": "AJH264",
+			"companyName": "nwjs-builder-phoenix-AJH264",
+			"copyright": "copyright",
+			"icon": "images/Artboard.ico"
+		},
+		"mac": {
+			"displayName": "AJH264",
+			"copyright": "copyright",
+			"icon": "images/Artboard.icns",
+			"plistStrings": {
+				"CFBundleIdentifier": "com.ajey.nw.app",
+				"CFBundleDocumentTypes": [],
+				"CFBundleURLTypes": [
+					{
+						"CFBundleURLName": "ajey",
+						"CFBundleURLSchemes": [
+							"ajey"
+						],
+						"LSIsAppleDefaultForScheme": true
+					}
+				]
+			}
+		},
+		"nsis": {
+			"installDirectory": "$PROGRAMFILES\\${_COMPANYNAME}\\${_APPNAME}",
+			"diffUpdaters": true
+		}
+	},
+	"scripts": {
+		"dist": "build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+		"start": "run --x64 --mirror https://dl.nwjs.io/ .",
+		"dmg": "appdmg.json ."
+	}
+}
